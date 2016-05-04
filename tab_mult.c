@@ -20,9 +20,7 @@ void	tab_mult(int nb)
   while (mult <= 9)
     {
       result = mult * nb;
-      printf("%i x ", (mult));
-      printf("%i = ", (nb));
-      printf("%i\n", (result));
+      printf("%i x %i = %i\n", mult, nb, result);
       mult++;
     }
 }
