@@ -137,7 +137,7 @@ char **ft_sorttab(char **tab, char *str)
   return (tab);
 }
 
-void ft_showtab(char **tab, char *str)
+void  ft_showtab(char **tab, char *str)
 {
   int i;
   int len;
