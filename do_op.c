@@ -15,14 +15,15 @@ int	check_op(char *op)
 {
   if (op[0] == '+')
     return (1);
-  if (op[0] == '-')
+  else if (op[0] == '-')
     return (2);
-  if (op[0] == '*')
+  else if (op[0] == '*')
     return (3);
-  if (op[0] == '/')
+  else if (op[0] == '/')
     return (4);
-  if (op[0] == '%')
+  else if (op[0] == '%')
     return (5);
+  return (0);
 }
 
 void	do_op(int nb1, char *op, int nb2)
@@ -39,18 +40,24 @@ void	do_op(int nb1, char *op, int nb2)
   else if (ope == 3)
     result = nb1 * nb2;
   else if (ope == 4)
-    result = nb1 / nb2;
+    {
+      if (nb2 == 0)
+	return;
+      result = nb1 / nb2;
+    }
   else if (ope == 5)
-    result = nb1 % nb2;
+    {
+      if (nb2 == 0)
+	return;
+      result = nb1 % nb2;
+    }
   printf("%d", result);
 }
 
 int	main(int ac, char **av)
 {
   if (ac == 4)
-    {
-      do_op(atoi(av[1]), av[2], atoi(av[3]));
-    }
+    do_op(atoi(av[1]), av[2], atoi(av[3]));
   printf("\n");
   return (0);
 }
